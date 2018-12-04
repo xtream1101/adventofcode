@@ -13,12 +13,7 @@ result = 0
 found_duplicate = None
 while found_duplicate is None:
     for freq in frequencies:
-        operation = freq[0]
-        value = int(freq[1:])
-        if operation == '+':
-            result += value
-        else:
-            result -= value
+        result += int(freq)
 
         if result in freq_seen_list:
             found_duplicate = result
