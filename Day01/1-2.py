@@ -8,17 +8,17 @@ with open(input_file) as f:
     frequencies = f.read().splitlines()
 
 
-freq_seen_list = [0]
+freq_seen_list = {0: True}
 result = 0
 found_duplicate = None
 while found_duplicate is None:
     for freq in frequencies:
         result += int(freq)
 
-        if result in freq_seen_list:
+        if freq_seen_list.get(result) is not None:
             found_duplicate = result
             break
 
-        freq_seen_list.append(result)
+        freq_seen_list[result] = True
 
 print(f"Part 2: {found_duplicate}")
