@@ -21,6 +21,9 @@ for unit in unique_units:
                 polymers = polymers[:idx] + polymers[idx + 2:]
                 # Now that chars shifted over, lets check the prev char to the new neighbour
                 idx -= 1
+                if idx < 0:
+                    # Needed for Thalidas input2.txt file
+                    idx = 0
             else:
                 idx += 1  # Move on to the next char
         except IndexError:
