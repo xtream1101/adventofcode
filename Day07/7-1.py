@@ -1,10 +1,8 @@
 import os
 import re
 import sys
-import time
 from pprint import pprint
-from collections import defaultdict, Counter
-from anytree import Node, RenderTree
+from collections import defaultdict
 
 steps_input = []
 input_file = os.path.join(os.path.dirname(sys.argv[0]), 'input.txt')
@@ -29,7 +27,7 @@ for step in steps_input:
     step_tree[step_1].append(step_2)
 
 
-pprint(step_tree)
+# pprint(step_tree)
 
 
 step_keys = set(step_tree.keys())
@@ -51,9 +49,9 @@ while nodes:
     new_nodes = list(set(step_tree[current_node]) - set(nodes))
     nodes = sorted(new_nodes + nodes)
 
-    print()
-    print(chain)
-    print(nodes, len(nodes))
+    # print()
+    # print(chain)
+    # print(nodes, len(nodes))
 
 
 print(chain)
