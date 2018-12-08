@@ -3,7 +3,8 @@ import sys
 
 
 orig_polymers = []
-input_file = os.path.join(os.path.dirname(sys.argv[0]), 'input.txt')
+input_file = os.path.join(os.path.dirname(sys.argv[0]), 'input.txt')  # and: 6968
+# input_file = os.path.join(os.path.dirname(sys.argv[0]), 'input2.txt')  # ans: 5524
 with open(input_file) as f:
     orig_polymers = f.read().strip()
 
@@ -23,6 +24,7 @@ for unit in unique_units:
                 idx -= 1
                 if idx < 0:
                     # Needed for Thalidas input2.txt file
+                    # Case is it removes a pair at the beginning of the polymer
                     idx = 0
             else:
                 idx += 1  # Move on to the next char
