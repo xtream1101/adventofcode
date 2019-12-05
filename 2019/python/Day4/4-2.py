@@ -4,7 +4,7 @@ import sys
 
 def check_code(code_str):
     code = int(code_str)
-    if code > 254032 and code < 789860 and len(set(code_str)) < 6:
+    if code > 284639 and code < 748759 and len(set(code_str)) < 6:
         current_dup_len = 0
         current_c = None
         dups = []
@@ -37,6 +37,7 @@ for a in range(10):
                         code_str = f"{a}{b}{c}{d}{e}{f}"
 
                         if check_code(code_str):
+                            print(code_str)
                             count += 1
 
 print(count)
