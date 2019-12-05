@@ -30,8 +30,7 @@ for _ in range(len(inputs)):
         store_at_idx = inputs[idx + 3] if modes[-3] == '0' else idx + 3
 
         inputs[store_at_idx] = a + b
-        if store_at_idx != idx:
-            idx += 4
+        idx += 4
 
     elif optcode == 2:
         a = inputs[inputs[idx + 1]] if modes[-1] == '0' else inputs[idx + 1]
@@ -39,15 +38,13 @@ for _ in range(len(inputs)):
         store_at_idx = inputs[idx + 3] if modes[-3] == '0' else idx + 3
 
         inputs[store_at_idx] = a * b
-        if store_at_idx != idx:
-            idx += 4
+        idx += 4
 
     elif optcode == 3:
         store_at_idx = inputs[idx + 1] if modes[-1] == '0' else idx + 1
         inputs[store_at_idx] = input_val
 
-        if store_at_idx != idx:
-            idx += 2
+        idx += 2
 
     elif optcode == 4:
         output = inputs[inputs[idx + 1]] if modes[-1] == '0' else inputs[idx + 1]
@@ -83,8 +80,7 @@ for _ in range(len(inputs)):
         else:
             inputs[store_at_idx] = 0
 
-        if store_at_idx != idx:
-            idx += 4
+        idx += 4
 
     elif optcode == 8:
         a = inputs[inputs[idx + 1]] if modes[-1] == '0' else inputs[idx + 1]
@@ -96,8 +92,7 @@ for _ in range(len(inputs)):
         else:
             inputs[store_at_idx] = 0
 
-        if store_at_idx != idx:
-            idx += 4
+        idx += 4
 
     elif optcode == 99:
         print("halt")
