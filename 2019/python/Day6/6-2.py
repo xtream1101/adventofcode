@@ -21,12 +21,8 @@ for i in inputs:
     if in_orbit in orbit_map:
         # set parent
         orbit_map[in_orbit].parent = orbit_map[obj]
-        for child in orbit_map[in_orbit].children:
-            orbit_map[child.name].parent = orbit_map[in_orbit]
-
-    orbit_map[in_orbit] = Node(in_orbit, parent=orbit_map[obj])
-    # print(i)
-    # print(orbit_map)
+    else:
+        orbit_map[in_orbit] = Node(in_orbit, parent=orbit_map[obj])
 
 
 ca = commonancestors(orbit_map['YOU'], orbit_map['SAN'])[-1]
