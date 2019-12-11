@@ -4,7 +4,7 @@ from anytree import Node, RenderTree
 from anytree.util import commonancestors, leftsibling, rightsibling
 
 inputs = []
-input_file = os.path.join(os.path.dirname(sys.argv[0]), 'input.txt')
+input_file = os.path.join(os.path.dirname(__file__), 'input.txt')
 with open(input_file) as f:
     inputs = f.read().splitlines()
 

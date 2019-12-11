@@ -1,9 +1,8 @@
 import os
-import sys
 
 
 def load_input():
-    input_file = os.path.join(os.path.dirname(sys.argv[0]), 'input.txt')
+    input_file = os.path.join(os.path.dirname(__file__), 'input.txt')
     with open(input_file) as f:
         inputs = f.read().splitlines()
     return inputs[0].split(','), inputs[1].split(',')
@@ -72,34 +71,11 @@ def part2(wire1, wire2):
     return min_dist
 
 
-def tests_part1():
-    assert part1('R75,D30,R83,U83,L12,D49,R71,U7,L72'.split(','),
-                 'U62,R66,U55,R34,D71,R55,D58,R83'.split(',')) == 159
-    assert part1('R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51'.split(','),
-                 'U98,R91,D20,R16,D67,R40,U7,R15,U6,R7'.split(',')) == 135
-
-    print("\tPart 1: tests passed")
-
-
-def tests_part2():
-    assert part2('R75,D30,R83,U83,L12,D49,R71,U7,L72'.split(','),
-                 'U62,R66,U55,R34,D71,R55,D58,R83'.split(',')) == 610
-    assert part2('R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51'.split(','),
-                 'U98,R91,D20,R16,D67,R40,U7,R15,U6,R7'.split(',')) == 410
-
-    print("\tPart 2: tests passed")
-
-
 if __name__ == '__main__':
     print("Day 3:")
-    tests_part1()
 
     part1_ans = part1(*load_input())
     print("\tPart 1:", part1_ans)
-    assert part1_ans == 489
 
-    print("")
-    tests_part2()
     part2_ans = part2(*load_input())
     print("\tPart 2:", part2_ans)
-    assert part2_ans == 93654

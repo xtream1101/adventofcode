@@ -1,10 +1,9 @@
 import os
-import sys
 import math
 
 
 def load_input():
-    input_file = os.path.join(os.path.dirname(sys.argv[0]), 'input.txt')
+    input_file = os.path.join(os.path.dirname(__file__), 'input.txt')
     with open(input_file) as f:
         inputs = f.read().splitlines()
     return inputs
@@ -19,7 +18,7 @@ def mass_to_fuel(mass):
     Returns:
         int: The amount of fuel needed
     """
-    return math.floor(int(mass)/3) - 2
+    return math.floor(int(mass) / 3) - 2
 
 
 def part1(module_masses):
@@ -65,8 +64,6 @@ if __name__ == '__main__':
 
     part1_ans = part1(load_input())
     print("\tPart 1:", part1_ans)
-    assert part1_ans == 3454026
 
     part2_ans = part2(load_input())
     print("\tPart 2:", part2_ans)
-    assert part2_ans == 5178170

@@ -45,8 +45,6 @@ if __name__ == '__main__':
 
     part1_ans = part1(*load_input())
     print("\tPart 1:", part1_ans)
-    assert part1_ans == 1033
 
     part2_ans = part2(*load_input())
     print("\n\tPart 2:", part2_ans)
-    assert part2_ans == 670
