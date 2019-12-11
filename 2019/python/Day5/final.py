@@ -1,6 +1,6 @@
 import os
 os.sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from Day2.final import int_code_computer  # noqa: E402
+from Day2.final import IntCodeComputer  # noqa: E402
 
 
 def load_input():
@@ -13,8 +13,10 @@ def load_input():
 if __name__ == '__main__':
     print("Day 5:")
 
-    part1_ans = int_code_computer(load_input(), 1)[1][-1]
-    print("\tPart 1:", part1_ans)
+    p1 = IntCodeComputer(load_input(), 1)
+    p1.run()
+    print("\tPart 1:", p1.outputs[-1])
 
-    part2_ans = int_code_computer(load_input(), 5)[1][-1]
-    print("\tPart 2:", part2_ans)
+    p2 = IntCodeComputer(load_input(), 5)
+    p2.run()
+    print("\tPart 2:", p2.outputs[-1])
