@@ -5,7 +5,7 @@ def load_input():
     return 254032, 789860
 
 
-def gen_codes():
+def gen_increasing_codes():
     for a in range(10):
         for b in range(a, 10):
             for c in range(b, 10):
@@ -19,11 +19,15 @@ def check_dup_chars(code_str):
     return 2 in Counter(code_str).values()
 
 
+def meets_criteria(code_str, min_num, max_num):
+    code = int(code_str)
+    return code > min_num and code < max_num and len(set(code_str)) < 6
+
+
 def part1(min_num, max_num):
     count = 0
-    for code_str in gen_codes():
-        code = int(code_str)
-        if code > min_num and code < max_num and len(set(code_str)) < 6:
+    for code_str in gen_increasing_codes():
+        if meets_criteria(code_str, min_num, max_num):
             count += 1
 
     return count
@@ -31,11 +35,9 @@ def part1(min_num, max_num):
 
 def part2(min_num, max_num):
     count = 0
-    for code_str in gen_codes():
-        code = int(code_str)
-        if code > min_num and code < max_num and len(set(code_str)) < 6:
-            if check_dup_chars(code_str):
-                count += 1
+    for code_str in gen_increasing_codes():
+        if meets_criteria(code_str, min_num, max_num) and check_dup_chars(code_str):
+            count += 1
 
     return count
 
@@ -47,4 +49,4 @@ if __name__ == '__main__':
     print("\tPart 1:", part1_ans)
 
     part2_ans = part2(*load_input())
-    print("\n\tPart 2:", part2_ans)
+    print("\tPart 2:", part2_ans)
