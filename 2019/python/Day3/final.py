@@ -11,7 +11,7 @@ def load_input():
 def gen_path(wire):
     wire_path = [(0, 0)]
     for val in wire:
-        d = val[0]
+        direction = val[0]
         dist = int(val[1:])
 
         direction_action = {
@@ -21,9 +21,24 @@ def gen_path(wire):
             'D': lambda pos: (pos[0], pos[1] + 1),
         }
         for i in range(1, dist + 1):
-            wire_path.append(direction_action[d](wire_path[-1]))
+            wire_path.append(direction_action[direction](wire_path[-1]))
 
     return wire_path
+
+
+def calc_path_distance(wire, intersect):
+    path_dist = 0
+    for i, node in enumerate(wire[1:], start=1):
+        prev_node = wire[i - 1]
+        # Add vertical=1 horzonal=0
+        plane = 1 if prev_node[0] == node[0] else 0
+        path_dist += abs(abs(prev_node[plane]) - abs(node[plane]))
+
+        if node == intersect:
+            # We found the end of the path
+            break
+
+    return path_dist
 
 
 def part1(wire1, wire2):
@@ -32,30 +47,12 @@ def part1(wire1, wire2):
 
     min_dist = None
     # Check distance from each intersections
-    # Ignore the start of 0,0 int he wire paths
+    # Ignore the start of 0,0 in the wire paths
     for intersect in set(wire1_path[1:]) & set(wire2_path[1:]):
         dist = abs(intersect[0]) + abs(intersect[1])
         min_dist = dist if min_dist is None else min(min_dist, dist)
 
     return min_dist
-
-
-def calc_path_distance(wire, intersect):
-    path_dist = 0
-    for i, node in enumerate(wire[1:], start=1):
-        prev_node = wire[i - 1]
-        if prev_node[0] == node[0]:
-            # Add vertical distance
-            path_dist += abs(abs(prev_node[1]) - abs(node[1]))
-        else:
-            # Add horizontal distance
-            path_dist += abs(abs(prev_node[0]) - abs(node[0]))
-
-        if node == intersect:
-            # We found the end of the path
-            break
-
-    return path_dist
 
 
 def part2(wire1, wire2):
