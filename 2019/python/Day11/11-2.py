@@ -1,11 +1,12 @@
 import os
 import copy
+import time
 os.sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Day2.final import IntCodeComputer  # noqa: E402
 
 
 BLACK = ' '
-WHITE = '#'
+WHITE = '█'
 
 
 def load_input():
@@ -109,6 +110,14 @@ def paint_panel(hull, color, panel):
     return hull
 
 
+def print_hull(hull, robot_pos, robot_dir, delay=.015):
+    hull[robot_pos[1]][robot_pos[0]] = robot_dir
+    print(chr(27) + "[2J")  # clear terminal
+    for row in hull:
+        print(''.join(row))
+    time.sleep(delay)
+
+
 hull = [
     [WHITE]
 ]
@@ -127,7 +136,4 @@ while process.last_optcode != 99:
     robot_dir = get_direction(robot_dir, dir_output)
     # And move
     hull, robot_pos = move_robot(hull, robot_pos, robot_dir)
-
-
-for row in hull:
-    print(''.join(row))
+    print_hull(hull, robot_pos, robot_dir)
