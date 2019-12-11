@@ -10,10 +10,9 @@ def load_input():
 
 class IntCodeComputer:
 
-    def __init__(self, program, input_val=(), default_input=None):
+    def __init__(self, program, input_val=()):
         self.program = program.copy()
         self.inputs = self._input_to_list(input_val)
-        self.default_input = default_input
         self.outputs = []
         self.current_idx = 0
         self.relative_base = 0
@@ -72,11 +71,8 @@ class IntCodeComputer:
                 try:
                     next_input = self.inputs.pop(0)
                 except IndexError:
-                    if self.default_input is not None:
-                        next_input = self.default_input
-                    else:
-                        # No more inputs left
-                        return
+                    # No more inputs left
+                    return
                 params = self._get_params(1, modes)
                 self.program[params[0]] = next_input
                 self.current_idx += 2
