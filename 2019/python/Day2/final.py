@@ -10,12 +10,14 @@ def load_input():
 
 class IntCodeComputer:
 
-    def __init__(self, program, input_val=()):
+    def __init__(self, program, input_val=(), default_input=None):
         self.program = program.copy()
         self.inputs = self._input_to_list(input_val)
+        self.default_input = default_input
         self.outputs = []
         self.current_idx = 0
         self.relative_base = 0
+        self.last_optcode = None
 
     def _parse_instruction(self, val):
         val = str(val)
@@ -28,7 +30,7 @@ class IntCodeComputer:
         return self._parse_instruction(self.program[self.current_idx])
 
     def _increase_mem(self, new_idx):
-        if len(self.program) < new_idx:
+        if len(self.program) <= new_idx:
             for _ in range(new_idx - len(self.program) + 1):
                 self.program.append(0)
 
@@ -70,8 +72,11 @@ class IntCodeComputer:
                 try:
                     next_input = self.inputs.pop(0)
                 except IndexError:
-                    # No more inputs left
-                    return
+                    if self.default_input is not None:
+                        next_input = self.default_input
+                    else:
+                        # No more inputs left
+                        return
                 params = self._get_params(1, modes)
                 self.program[params[0]] = next_input
                 self.current_idx += 2
