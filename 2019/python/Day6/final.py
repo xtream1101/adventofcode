@@ -41,16 +41,18 @@ def part1(raw_orbits, print_tree=False):
     return total_orbits
 
 
-def part2(raw_orbits, print_tree=False):
+def part2(raw_orbits, node1_name, node2_name, print_tree=False):
     orbit_map = generate_orbit_map(raw_orbits, print_tree=print_tree)
+    node1 = orbit_map[node1_name]
+    node2 = orbit_map[node2_name]
+    ca = commonancestors(node1, node2)[-1]
 
-    ca = commonancestors(orbit_map['YOU'], orbit_map['SAN'])[-1]
-    you_a = commonancestors(orbit_map['YOU'].parent)
-    you_dist = len(you_a[you_a.index(ca):])
-    san_a = commonancestors(orbit_map['SAN'].parent)
-    san_dist = len(san_a[san_a.index(ca):])
+    orbital_transfers = 0
+    for node in (node1, node2):
+        a = commonancestors(node.parent)
+        orbital_transfers += len(a[a.index(ca):])
 
-    return you_dist + san_dist
+    return orbital_transfers
 
 
 if __name__ == '__main__':
@@ -59,5 +61,5 @@ if __name__ == '__main__':
     part1_ans = part1(load_input())
     print("\tPart 1:", part1_ans)
 
-    part2_ans = part2(load_input())
+    part2_ans = part2(load_input(), 'YOU', 'SAN')
     print("\tPart 2:", part2_ans)

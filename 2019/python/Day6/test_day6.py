@@ -28,7 +28,7 @@ def test_part_1_example_3():
 
 def test_part_2_example_1():
     # Given test
-    assert part2(part_2_example_1_input) == 4
+    assert part2(part_2_example_1_input, 'YOU', 'SAN') == 4
 
 
 def test_answer_part_1():
@@ -36,4 +36,4 @@ def test_answer_part_1():
 
 
 def test_answer_part_2():
-    assert part2(load_input()) == 472
+    assert part2(load_input(), 'YOU', 'SAN') == 472
