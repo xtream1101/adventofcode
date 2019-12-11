@@ -32,20 +32,23 @@ class IntCodeComputer:
             for _ in range(new_idx - len(self.program) + 1):
                 self.program.append(0)
 
-    def _get_idx(self, modes, i):
-        idx_mode = {
-            '0': self.program[self.current_idx + i],
-            '1': self.current_idx + i,
-            '2': self.program[self.current_idx + i] + self.relative_base,
-        }
-        new_idx = idx_mode[modes[-i]]
-        self._increase_mem(new_idx)
-        return new_idx
-
     def _input_to_list(self, input_val):
         if isinstance(input_val, (list, tuple, set)):
             return list(input_val)
         return [input_val]
+
+    def _get_params(self, num, modes):
+        params = []
+        for i in range(1, num + 1):
+            idx_mode = {
+                '0': self.program[self.current_idx + i],
+                '1': self.current_idx + i,
+                '2': self.program[self.current_idx + i] + self.relative_base,
+            }
+            new_idx = idx_mode[modes[-i]]
+            params.append(new_idx)
+            self._increase_mem(new_idx)
+        return params
 
     def run(self, input_val=()):
         self.inputs.extend(self._input_to_list(input_val))
@@ -54,15 +57,13 @@ class IntCodeComputer:
             optcode, modes = self._get_instruction()
             self.last_optcode = optcode
             if optcode == 1:
-                a = self.program[self._get_idx(modes, 1)]
-                b = self.program[self._get_idx(modes, 2)]
-                self.program[self._get_idx(modes, 3)] = a + b
+                params = self._get_params(3, modes)
+                self.program[params[2]] = self.program[params[0]] + self.program[params[1]]
                 self.current_idx += 4
 
             elif optcode == 2:
-                a = self.program[self._get_idx(modes, 1)]
-                b = self.program[self._get_idx(modes, 2)]
-                self.program[self._get_idx(modes, 3)] = a * b
+                params = self._get_params(3, modes)
+                self.program[params[2]] = self.program[params[0]] * self.program[params[1]]
                 self.current_idx += 4
 
             elif optcode == 3:
@@ -71,37 +72,36 @@ class IntCodeComputer:
                 except IndexError:
                     # No more inputs left
                     return
-                self.program[self._get_idx(modes, 1)] = next_input
+                params = self._get_params(1, modes)
+                self.program[params[0]] = next_input
                 self.current_idx += 2
 
             elif optcode == 4:
-                self.outputs.append(self.program[self._get_idx(modes, 1)])
+                params = self._get_params(1, modes)
+                self.outputs.append(self.program[params[0]])
                 self.current_idx += 2
 
             elif optcode == 5:
-                a = self.program[self._get_idx(modes, 1)]
-                b = self.program[self._get_idx(modes, 2)]
-                self.current_idx = b if a != 0 else self.current_idx + 3
+                params = self._get_params(2, modes)
+                self.current_idx = self.program[params[1]] if self.program[params[0]] != 0 else self.current_idx + 3
 
             elif optcode == 6:
-                a = self.program[self._get_idx(modes, 1)]
-                b = self.program[self._get_idx(modes, 2)]
-                self.current_idx = b if a == 0 else self.current_idx + 3
+                params = self._get_params(2, modes)
+                self.current_idx = self.program[params[1]] if self.program[params[0]] == 0 else self.current_idx + 3
 
             elif optcode == 7:
-                a = self.program[self._get_idx(modes, 1)]
-                b = self.program[self._get_idx(modes, 2)]
-                self.program[self._get_idx(modes, 3)] = 1 if a < b else 0
+                params = self._get_params(3, modes)
+                self.program[params[2]] = 1 if self.program[params[0]] < self.program[params[1]] else 0
                 self.current_idx += 4
 
             elif optcode == 8:
-                a = self.program[self._get_idx(modes, 1)]
-                b = self.program[self._get_idx(modes, 2)]
-                self.program[self._get_idx(modes, 3)] = 1 if a == b else 0
+                params = self._get_params(3, modes)
+                self.program[params[2]] = 1 if self.program[params[0]] == self.program[params[1]] else 0
                 self.current_idx += 4
 
             elif optcode == 9:
-                self.relative_base += self.program[self._get_idx(modes, 1)]
+                params = self._get_params(1, modes)
+                self.relative_base += self.program[params[0]]
                 self.current_idx += 2
 
             elif optcode == 99:
