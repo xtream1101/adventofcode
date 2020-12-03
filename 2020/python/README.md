@@ -29,3 +29,5 @@ python Day01/1-1.py
 I am getting the html with styles as a single file by using the browser extention **Save Page WE**  
 - Chrome: https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof?hl=en-US
 - Firefox: https://addons.mozilla.org/en-US/firefox/addon/save-page-we/
+
+To auto generate readme for the day, run `python create_day_readme.py Day01/Day\ 1\ -\ Advent\ of\ Code\ 2020.html`
