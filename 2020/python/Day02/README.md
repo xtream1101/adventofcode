@@ -1,10 +1,7 @@
 # Day 2: Password Philosophy
 
 
-## Problem
-
-
-### Part 1
+## Part 1
 
 Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via [toboggan](https://en.wikipedia.org/wiki/Toboggan).
 
@@ -30,7 +27,7 @@ In the above example, **`2`** passwords are valid. The middle password, `cdefg`,
 
 
 
-### Part 2
+## Part 2
 
 While it appears you validated the passwords correctly, they don't seem to be what the Official Toboggan Corporate Authentication System is expecting.
 
