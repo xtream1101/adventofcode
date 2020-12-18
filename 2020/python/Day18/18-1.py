@@ -62,32 +62,25 @@ def run(exprs):
 
 # Prod edge case
 test_ans = run(['4 * 6 + 3 * 6 + (9 + 5 * 3 * 7) * 6'])
-# print(test_ans)
-assert test_ans == 2736
+assert test_ans == 2736, test_ans
 
 test_ans = run(['1 + 2 * 3 + 4 * 5 + 6'])
-# print(test_ans)
-assert test_ans == 71
+assert test_ans == 71, test_ans
 
 test_ans = run(['1 + (2 * 3) + (4 * (5 + 6))'])
-# print(test_ans)
-assert test_ans == 51
+assert test_ans == 51, test_ans
 
 test_ans = run(['2 * 3 + (4 * 5)'])
-# print(test_ans)
-assert test_ans == 26
+assert test_ans == 26, test_ans
 
 test_ans = run(['5 + (8 * 3 + 9 + 3 * 4 * 3)'])
-# print(test_ans)
-assert test_ans == 437
+assert test_ans == 437, test_ans
 
 test_ans = run(['5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))'])
-# print(test_ans)
-assert test_ans == 12240
+assert test_ans == 12240, test_ans
 
 test_ans = run(['((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2'])
-# print(test_ans)
-assert test_ans == 13632
+assert test_ans == 13632, test_ans
 
 
 ans = run(load_input('input.txt'))

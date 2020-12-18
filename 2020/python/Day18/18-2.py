@@ -67,28 +67,22 @@ def run(exprs):
 
 
 test_ans = run(['1 + 2 * 3 + 4 * 5 + 6'])
-# print(test_ans)
-assert test_ans == 231
+assert test_ans == 231, test_ans
 
 test_ans = run(['1 + (2 * 3) + (4 * (5 + 6))'])
-# print(test_ans)
-assert test_ans == 51
+assert test_ans == 51, test_ans
 
 test_ans = run(['2 * 3 + (4 * 5)'])
-# print(test_ans)
-assert test_ans == 46
+assert test_ans == 46, test_ans
 
 test_ans = run(['5 + (8 * 3 + 9 + 3 * 4 * 3)'])
-# print(test_ans)
-assert test_ans == 1445
+assert test_ans == 1445, test_ans
 
 test_ans = run(['5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))'])
-# print(test_ans)
-assert test_ans == 669060
+assert test_ans == 669060, test_ans
 
 test_ans = run(['((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2'])
-# print(test_ans)
-assert test_ans == 23340
+assert test_ans == 23340, test_ans
 
 
 ans = run(load_input('input.txt'))
