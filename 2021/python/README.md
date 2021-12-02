@@ -14,11 +14,11 @@
 
 |  Part  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  10  |  11  |  12  |  13  |  14  |  15  |  16  |  17  |  18  |  19  |  20  |  21  |  22  |  23  |  24  |  25  |
 |-------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|      1 | ⭐  |   |   |   |   |   |   |  |   |    |    |    |    |    |    |    |    |    |    |    |      |      |      |      |      |   
-|      2 | ⭐  |   |   |   |   |   |   |  |   |    |    |    |    |    |    |    |    |    |      |      |      |      |      |      |      |   
+|      1 | ⭐  |  ⭐  |   |   |   |   |   |  |   |    |    |    |    |    |    |    |    |    |    |    |      |      |      |      |      |   
+|      2 | ⭐  |  ⭐  |   |   |   |   |   |  |   |    |    |    |    |    |    |    |    |    |      |      |      |      |      |      |      |   
 
 ## Running
-These will all work in python 3.6+.  
+These will all work in python 3.10+ _(some may work lower, but using the pattern match statement from 3.10 sometimes)_  
 They can be run from any location by running:
 ```
 python Day01/1-1.py
@@ -26,8 +26,8 @@ python Day01/1-1.py
 
 
 ## Notes
-I am getting the html with styles as a single file by using the browser extention **Save Page WE**  
+I am getting the html with styles as a single file by using the browser extension **Save Page WE**  
 - Chrome: https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof?hl=en-US
 - Firefox: https://addons.mozilla.org/en-US/firefox/addon/save-page-we/
 
-To auto generate readme for the day, run `python create_day_readme.py Day01/Day\ 1\ -\ Advent\ of\ Code\ 2020.html`
+To auto generate readme for the day, run `python create_day_readme.py Day01/Day\ 1\ -\ Advent\ of\ Code\ 2021.html`
