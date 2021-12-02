@@ -1,9 +1,9 @@
 import os
 import re
 import sys
-import tomd
 import parsel
 import jinja2
+import html2text
 
 cb_format_pattern = re.compile(r'(`.+?`)', re.S)
 
@@ -47,13 +47,22 @@ for test in tests:
         print(f"Expected: {test[1]}")
         sys.exit(1)
 
+# First remove un needed style tag
+with open(sys.argv[1], 'r') as f:
+    prefix_regex = re.compile('<style data-savepage-href="/static/highcontrast.css.*</style>', re.MULTILINE|re.DOTALL)
+    cleaned = re.sub(prefix_regex, '', f.read())
+with open(sys.argv[1], 'w') as f:
+    f.write(cleaned)
+
+# Parse the content
 problems = parsel.Selector(text=open(sys.argv[1]).read()).css('article.day-desc')
 
 day_title = problems[0].css('h2::text').extract_first().replace('---', '').strip()
 
 # Remove headers from the problem text. Use the one in the Readme's template
-problem_part1 = tomd.convert(re.sub(r"<.?h2[^>]*>", "", problems[0].extract()))
-problem_part2 = tomd.convert(re.sub(r"<.?h2[^>]*>", "", problems[1].extract()))
+h2t = html2text.HTML2Text()
+problem_part1 = h2t.handle(re.sub(r"<.?h2.*h2>", "", problems[0].extract()).strip())
+problem_part2 = h2t.handle(re.sub(r"<.?h2.*h2>", "", problems[1].extract()).strip())
 
 tm = jinja2.Template(open('Day_README.md.j2').read())
 readme_template = tm.render(
