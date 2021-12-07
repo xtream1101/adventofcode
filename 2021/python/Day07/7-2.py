@@ -19,7 +19,7 @@ def triangular_number(n):
 
 def run(positions):
     current_lowest = None
-    current_pos = int(statistics.median(positions))
+    current_pos = int(statistics.mean(positions))
     starting_pos = current_pos
     for h_dir in [-1, 1]:
         while True:

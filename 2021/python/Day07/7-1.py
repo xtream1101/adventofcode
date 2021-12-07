@@ -12,7 +12,7 @@ def load_input(file_name):
 
 def run(positions):
     current_lowest = None
-    current_pos = int(statistics.median(positions))
+    current_pos = int(statistics.mean(positions))
     starting_pos = current_pos
     for h_dir in [-1, 1]:
         while True:
