@@ -68,7 +68,7 @@ def run(signals):
                         # and if 4 is a substr then must be 9
                         mapped_unique[idx] = '9'
                     elif contains_all_letters(unique_code[mapped_unique.index('1')], digit):
-                        # if 1 is a substr and 4 is already set but the first if
+                        # if 1 is a substr and 4 is already set by the first if
                         mapped_unique[idx] = '0'
                     else:
                         # only option is 6
