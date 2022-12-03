@@ -25,9 +25,9 @@ def run(sacks):
     total_sum = 0
     for item in dup_items:
         if item <= 'Z':
-            total_sum += ord(item)-65+26+1
+            total_sum += ord(item) - 65 + 26 + 1
         else:
-            total_sum += ord(item)-97+1
+            total_sum += ord(item) - 97 + 1
     return total_sum
 
 
