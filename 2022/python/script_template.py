@@ -6,7 +6,7 @@ def load_input(file_name):
     input_file = os.path.join(os.path.dirname(sys.argv[0]), file_name)
     with open(input_file) as f:
         lines = f.read().splitlines()
-    return list(lines)
+    return lines
 
 
 def run(data):
