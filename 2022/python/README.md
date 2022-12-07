@@ -9,7 +9,6 @@
 
 ## Progress
 
-```
 
     #@@##@@@###@@##@#@#@#@#@#@@@@@#@#@#@@@##@#@@#@@##  25
     @##@@@@@@@@@@#@@@@@@#@#@##@@##@#@#@@@#@#@@@@#@@@@  24
@@ -39,7 +38,7 @@
     
 
 
-```
+
 
 ## Running
 These will all work in python 3.10+ _(some may work lower, but not guaranteed)_
