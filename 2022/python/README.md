@@ -6,15 +6,43 @@
 > To supply enough magical energy, the expedition needs to retrieve a minimum of fifty stars by December 25th. Although the Elves assure you that the grove has plenty of fruit, you decide to grab any fruit you see along the way, just in case.
 > Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
 
+
 ## Progress
 
-|  Part  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  10  |  11  |  12  |  13  |  14  |  15  |  16  |  17  |  18  |  19  |  20  |  21  |  22  |  23  |  24  |  25  |
-|-------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|      1 |  ⭐ |  ⭐ |  ⭐ | ⭐ |  ⭐  | ⭐ |  ⭐  |     |     |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |   
-|      2 |  ⭐ |  ⭐ |  ⭐ | ⭐ |  ⭐  | ⭐ |  ⭐  |     |     |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |   
+```
+
+    #@@##@@@###@@##@#@#@#@#@#@@@@@#@#@#@@@##@#@@#@@##  25
+    @##@@@@@@@@@@#@@@@@@#@#@##@@##@#@#@@@#@#@@@@#@@@@  24
+    @@@#@#@@@@##@#@##@@#@##@@@##@@##@@@@#@@@@@@@#@@@#  23
+    @#@@@#@@@@@@@@@@@@@@@#@@@@#@#@@@##@@#@@@@@@@#@##@  22
+    @@@@#@@@@@@@@#@@@#@@@@@#@@@@@##@@@@##@@#@@#@@@@#@  21
+    @@@@##@#@@#@@@@#@@@@#@@@@@##@@@@@#@@#@#@##@#@#@@#  20
+    ##@#@@@@@##@@@@@@##@@@#@@@@#@@@@@#@@@@#@@@@#@@@@@  19
+    @#@@@##@##@@@@@@@@##@@@#@#@#@@@#@##@@@#@@@@#@@#@@  18
+    #@@@@@@@##@#@@@@@##@@@@@@@@@@#@@#@#@@@@@@#@#@@@#@  17
+    #@#@@@@#@@##@@@@#@@@@@@#@@@##@@@@#@@@#@@#@@#@@@#@  16
+    @#@@@#@@@@@@@@#@@#@@#@@@@#@@#@@@@@@@@##@@@#@@@@@#  15
+    @@#@@@#@@@@#@@#@@@#@@@#@@#@#@@@@@@#@@@#@#@#@@##@@  14
+    #@@@#@@#@@@@@@@@@#@#@#@@#@@#@@@#@@##@@#@@@##@@@@#  13
+    #@##@@#@@@@#@#@@@@@@@#@#@@@#@@@@@@##@@#@@@#@###@#  12
+    #@@@@@|@####@@@@@##@#@@##@@@@@#@@@@@#@@#@@@#@@#@#  11
+    @@@#@@@@@@@@@@@##@@##@@@#@#@@@@#@#@####@#@@#@@@@@  10
+    @@@@@@#@@#@@@|@###@@@@@##@@@@@@@@#@@#@@@@##@@#@@#   9
+    @@@@#@@@@#@@@@#@@@##@@@@@@@@@#@@@@@|#@#@@@@##@#@@   8
+    @#@@@@@#@@@.~~.#@@#@@#@#.#@@@#@@@#@#@@#@@@@@#@@@@   7 ⭐️⭐️
+    @@@@@@@##@@@.~~.@@@@@@@..#@@@#@@##@#@@@@@@@@@@#@@   6 ⭐️⭐️
+    @##@#@@@@@#@#.~~.#@./\.'@##@@#@@##@##@@@@@##@##@@   5 ⭐️⭐️
+    @@#@@@@@@@@.' ~  './\'./\' .####@@###@###@##@#@@@   4 ⭐️⭐️
+    @@@@@@@@@_/ ~   ~  \ ' '. '.'.@#@@@@#@@@@#@@@@@@@   3 ⭐️⭐️
+    -~------'    ~    ~ '--~-----~-~----___________--   2 ⭐️⭐️
+      ~    ~  ~      ~     ~ ~   ~     ~  ~  ~   ~      1 ⭐️⭐️
+    
+
+
+```
 
 ## Running
-These will all work in python 3.10+ _(some may work lower, but not guaranteed)_  
+These will all work in python 3.10+ _(some may work lower, but not guaranteed)_
 They can be run from any location by running:
 ```
 python Day01/1-1.py
@@ -22,7 +50,7 @@ python Day01/1-1.py
 
 
 ## Notes
-I am getting the html with styles as a single file by using the browser extension **Save Page WE**  
+I am getting the html with styles as a single file by using the browser extension **Save Page WE**
 - Chrome: https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof?hl=en-US
 - Firefox: https://addons.mozilla.org/en-US/firefox/addon/save-page-we/
 
