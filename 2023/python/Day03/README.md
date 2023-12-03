@@ -1,5 +1,7 @@
 # Day 3: Gear Ratios
 
+> **Dev Notes:**  
+> Not happy with the logic used in this one. I let copilot auto complete the if statements for checking all the directions which makes a lot of hard to read statements (but was able to write them all very fast). Normally I would make a matrix of all the directions I need to check and loop through them, greatly cleaning up the code. But I have been commiting the code I used to get the answer no matter how bad it is.
 
 ## Part 1
 You and the Elf eventually reach a [gondola
