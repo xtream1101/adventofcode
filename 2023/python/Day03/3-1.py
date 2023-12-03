@@ -8,11 +8,10 @@ def load_input(file_name):
         lines = f.read().splitlines()
     return lines
 
-
 # has bug where it will not care about the last number in the column in the very last row, but input does not have that so not an issue
 def run(data):
     total_val = 0
-    curr_num = ""
+    curr_num = ''
     is_part_num = False
 
     for r_idx, r in enumerate(data):
@@ -21,15 +20,16 @@ def run(data):
             if c_idx == 0 or not c.isdigit():
                 # print(c, curr_num, c_idx)
                 if curr_num:
+
                     # Check if its a part number
                     if is_part_num:
-                        print("Part number: ", curr_num)
+                        print('Part number: ', curr_num)
                         # input()
                         total_val += int(curr_num)
                         is_part_num = False
                     else:
-                        print("NO: ", curr_num)
-                    curr_num = ""
+                        print('NO: ', curr_num)
+                    curr_num = ''
 
             if c.isdigit():
                 curr_num += c
@@ -39,83 +39,55 @@ def run(data):
 
             if r_idx > 0:
                 # check up
-                if (
-                    data[r_idx - 1][c_idx] != "."
-                    and not data[r_idx - 1][c_idx].isdigit()
-                ):
+                if data[r_idx - 1][c_idx] != '.' and not data[r_idx - 1][c_idx].isdigit():
                     is_part_num = True
                     continue
 
                 # check up left
-                if (
-                    c_idx > 0
-                    and data[r_idx - 1][c_idx - 1] != "."
-                    and not data[r_idx - 1][c_idx - 1].isdigit()
-                ):
+                if c_idx > 0 and data[r_idx - 1][c_idx - 1] != '.' and not data[r_idx - 1][c_idx - 1].isdigit():
                     is_part_num = True
                     continue
 
                 # check up right
-                if (
-                    c_idx < len(r) - 1
-                    and data[r_idx - 1][c_idx + 1] != "."
-                    and not data[r_idx - 1][c_idx + 1].isdigit()
-                ):
+                if c_idx < len(r) - 1 and data[r_idx - 1][c_idx + 1] != '.' and not data[r_idx - 1][c_idx + 1].isdigit():
                     is_part_num = True
                     continue
 
+
             if r_idx < len(data) - 1:
                 # check down
-                if (
-                    data[r_idx + 1][c_idx] != "."
-                    and not data[r_idx + 1][c_idx].isdigit()
-                ):
+                if data[r_idx + 1][c_idx] != '.' and not data[r_idx + 1][c_idx].isdigit():
                     is_part_num = True
                     continue
 
                 # check down left
-                if (
-                    c_idx > 0
-                    and data[r_idx + 1][c_idx - 1] != "."
-                    and not data[r_idx + 1][c_idx - 1].isdigit()
-                ):
+                if c_idx > 0 and data[r_idx + 1][c_idx - 1] != '.' and not data[r_idx + 1][c_idx - 1].isdigit():
                     is_part_num = True
                     continue
 
                 # check down right
-                if (
-                    c_idx < len(r) - 1
-                    and data[r_idx + 1][c_idx + 1] != "."
-                    and not data[r_idx + 1][c_idx + 1].isdigit()
-                ):
+                if c_idx < len(r) - 1 and data[r_idx + 1][c_idx + 1] != '.' and not data[r_idx + 1][c_idx + 1].isdigit():
                     is_part_num = True
                     continue
 
             # check left
-            if (
-                c_idx > 0
-                and data[r_idx][c_idx - 1] != "."
-                and not data[r_idx][c_idx - 1].isdigit()
-            ):
+            if c_idx > 0 and data[r_idx][c_idx - 1] != '.' and not data[r_idx][c_idx - 1].isdigit():
                 is_part_num = True
                 continue
 
             # check right
-            if (
-                c_idx < len(r) - 1
-                and data[r_idx][c_idx + 1] != "."
-                and not data[r_idx][c_idx + 1].isdigit()
-            ):
+            if c_idx < len(r) - 1 and data[r_idx][c_idx + 1] != '.' and not data[r_idx][c_idx + 1].isdigit():
                 is_part_num = True
                 continue
 
     return total_val
 
 
-test_ans = run(load_input("test_input.txt"))
+test_ans = run(load_input('test_input.txt'))
 print(test_ans)
 assert test_ans == 4361
 
-ans = run(load_input("input.txt"))
+
+ans = run(load_input('input.txt'))
 assert ans == 530849
 print(ans)
