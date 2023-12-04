@@ -1,9 +1,6 @@
 import os
 import sys
-import math
 from collections import defaultdict
-
-# from rich import print, pretty
 
 
 def load_input(file_name):

@@ -1,6 +1,5 @@
 import os
 import sys
-import math
 
 
 def load_input(file_name):
