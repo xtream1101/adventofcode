@@ -14,7 +14,6 @@ def run(data):
     total_val = 0
 
     for line in data:
-        game_num = int(line.split(": ")[0].replace("Game ", "").strip())
         game_cubes = defaultdict(int)
         for game_set in line.split(": ")[1].split("; "):
             for game in game_set.split(", "):

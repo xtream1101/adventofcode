@@ -13,7 +13,6 @@ def run(data):
     total_val = 0
     for card in data:
         card_val = 0
-        card_num = int(card.split(":")[0].split()[-1])
         your_nums, win_nums = card.split(":")[1].split("|")
 
         your_nums = your_nums.strip().split()

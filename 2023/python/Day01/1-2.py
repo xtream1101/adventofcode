@@ -33,7 +33,6 @@ def run(data):
                 for k in n:
                     found_nums[k] = swap[i]
 
-        num = ""
         for idx, i in enumerate(line):
             if i.isdigit():
                 found_nums[idx] = i

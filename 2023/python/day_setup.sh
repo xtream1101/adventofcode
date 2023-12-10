@@ -1,14 +1,17 @@
 
 # Need to use `source day_setup.sh`, NOT bash or ./ otherwise `cd` will not work
 
-# For linus
-# DAY=$(date -d "$D" '+%-d')
-# DAY2=$(date -d "$D" '+%d')
-
-# For Mac
-DAY=$(date -j '+%d')
-DAY2=$(date -j '+%d')
-
+if [ "$#" -eq 0 ]; then
+    DAY=$(date +'%-d')
+    DAY2=$(date +'%d')
+else
+    DAY=$1
+    if [ "$#" -eq 1 ]; then
+        DAY2="0$1"
+    else
+        DAY2=$1
+    fi
+fi
 
 DAY_FOLDER="Day${DAY2}"
 
