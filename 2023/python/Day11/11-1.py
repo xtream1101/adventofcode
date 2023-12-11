@@ -63,6 +63,6 @@ test_ans = run(load_input("test_input.txt"))
 print(test_ans)
 assert test_ans == 374
 
-ans = run(load_input('input.txt'))
+ans = run(load_input("input.txt"))
 assert ans == 9918828
 print(ans)

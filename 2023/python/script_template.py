@@ -15,10 +15,10 @@ def run(data):
     return total_val
 
 
-test_ans = run(load_input('test_input.txt'))
+test_ans = run(load_input("test_input.txt"))
 print(test_ans)
 assert test_ans == 0000
 
-ans = run(load_input('input.txt'))
+ans = run(load_input("input.txt"))
 # assert ans == 0000
 print(ans)
