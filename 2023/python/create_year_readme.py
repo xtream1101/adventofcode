@@ -16,6 +16,12 @@ h2t.ignore_links = True
 calendar_html = parsel.Selector(text=open(sys.argv[1]).read()).css('.calendar')
 calendar_html.css('#calendar-countdown').drop()
 
+# Check if a day is not complete
+for el in calendar_html.css('a'):
+    if el.css('.calendar-complete'):
+        # Remove the 2nd star from showing
+        star_el = el.css('span.calendar-mark-verycomplete').drop()
+
 progress = h2t.handle(calendar_html[0].extract().strip())
 progress = fix_formatting(progress)
 
