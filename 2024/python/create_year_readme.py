@@ -4,7 +4,6 @@ import sys
 import parsel
 import jinja2
 import html2text
-from test.test_ctypes.test_pep3118 import Complete
 
 template_path = pathlib.Path(os.path.dirname(sys.argv[0]), "YEAR_README.md.j2")
 output_path = pathlib.Path(os.path.dirname(sys.argv[0]), "README.md")
