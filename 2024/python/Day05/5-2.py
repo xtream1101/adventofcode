@@ -34,13 +34,11 @@ def run(data):
     total_val = 0
 
     page_rules = defaultdict(list)
-    page_rules_reverse = defaultdict(list)
     updates = []
     for line in data:
         if "|" in line:
             r1, r2 = line.split("|")
             page_rules[r1].append(r2)
-            page_rules_reverse[r2].append(r1)
         elif "," in line:
             updates.append(line.split(","))
 
